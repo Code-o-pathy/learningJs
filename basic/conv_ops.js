@@ -1,12 +1,12 @@
 //  let score = "33";//it will be a number after conversion
 // let score = "33abc";//its a  string so type ater converting it will be NaN
-// let score = null;  //its converted value will be 0
+let score = null;  //its converted value will be 0
 // let score = undefined;//its will be NaN
-// console.log(typeof score);
-// console.log(typeof (score)) both legit method
-// let valueInNumber = Number(score); //type conversion from string to number NOTE: always use first letter capital
-// console.log(valueInNumber); //NaN cause it tries to convert but kinda fails to do so
-// console.log(typeof valueInNumber); //number
+console.log(typeof score);
+console.log(typeof (score)) //both legit method
+let valueInNumber = Number(score); //type conversion from string to number NOTE: always use first letter capital
+console.log(valueInNumber); //NaN cause it tries to convert but kinda fails to do so
+console.log(typeof valueInNumber); //number
 
 //conversion conclusion for anything to Number
 //"33"=> 33
@@ -25,7 +25,7 @@
 //""=>false
 //"ajhs"=>true  
 
-let someNumber=33;//number
-let stringSomenumber=String(someNumber)//string
-console.log(someNumber)//33 number
-console.log( stringSomenumber)//33 string
+// let someNumber=33;//number
+// let stringSomenumber=String(someNumber)//string
+// console.log(someNumber)//33 number
+// console.log( stringSomenumber)//33 string
