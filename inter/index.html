@@ -1,31 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dom learning</title>
-    <style>
-        .bg-black{
-            background-color: black;
-            color: white;
-        }
-    </style>
+    <title>Chai aur code</title>
 </head>
-<body class="bg-black">
-    <div >
-        <h1 id="title" class="heading">Dom manipulation on chai aur code! <span>test text</span></h1>
-        <p>Lorem ipsum dolor sit amet.</p>
-        <h1 class="later_h1">hello</h1>
-        <h1 class="later_h1">uncle</h1>
-        <h1 class="later_h1">namaste</h1>
-    </div>
+
+<body style="background-color: black;color: white;">
+    <ul class="languages">
+        <li>JavaScript</li>
+    </ul>
 </body>
+<script>
+    function addLanguage(langName) {
+        const li = document.createElement('li')
+        li.className = "langs"
+        li.ids = Math.round((Math.random() * 10) + 1)
+        // li.setAttribute('id', 'ids')
+        li.innerHTML = langName
+        document.querySelector('.languages').appendChild(li)
+
+    }
+    // addLanguage("Java")
+    // addLanguage("python")
+    // const ans=document.querySelectorAll('.langs')
+    // console.log(ans[0])
+    // console.log(ans[1])
+    // console.log(ans[0].ids)
+    // console.log(ans[1].ids)
+
+    function addOptiLang(langName) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.languages').appendChild(li)
+        //good approach innerHTML is time consuming as it finds,take,update,
+        //here we make and then find and update
+    }
+    addOptiLang("java")
+    addOptiLang("python")
+
+
+
+    //editing an element
+
+    //naive
+    const elem = document.querySelector('li:nth-child(2)')
+    // elem.innerHTML = "golang"
+
+    //good and optimized
+    const newli = document.createElement('li')
+    newli.textContent = "c"
+    elem.replaceWith(newli)
+
+    //outer html change
+
+    const newlis=document.querySelector('li:first-child')
+    newlis.outerHTML='<li>Jquery</li>'
+
+    //remove
+    const deleteNode=document.querySelector('li:last-child')
+    deleteNode.remove()
+</script>
+
 </html>
-
-
-<!--//while dom manipulation on web, 3 props, innerText,textContent,innerHTML:- innerText shows only the visible text, textContentshows the entire text even if its hidden by css props and innerHTMLshows the whole text in that tag for eg if u have h1 tage and in that u use span, then innerHTMLon h1 tag will also show the span tag syntax in output while other two innerText and textContentwont show that
-
-video 32
--->
-

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai Aur Code</title>
+</head>
+<body style="background-color: black;color: white;">
+</body>
+<script> const divElem=document.createElement('div')
+divElem.className="main"
+divElem.id=Math.round(Math.random()*10+1)
+divElem.setAttribute("title","generated title")
+divElem.style.backgroundColor="green"
+divElem.style.padding="12px"
+// divElem.innerHTML="chai aur code"  argued to be the unoptimized way cause it first goes to the DOM selects the node and then update it 
+const text=document.createTextNode("chai aur board") 
+divElem.appendChild(text)
+console.log(divElem)
+console.log(divElem)
+
+//now rendering it
+document.body.appendChild(divElem)
+
+//this can be used as a function to create a new div everytime u want
+</script>
+</html>
