@@ -1,21 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alert</title>
 </head>
+
 <body style="background-color: #414141; color: aliceblue;">
     <h2>Amazing image</h2>
-    <div >
+    <div>
         <ul id="images">
-            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
-            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
-            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
-            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
             <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="" <!---onclick="alert('owl')" ---> </li>
+            <!--this approach of applying onclick in direct html is not scalable in js however its useful in react-->
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
         </ul>
-   </div>
+    </div>
 </body>
+<script>
+    // document.getElementById('owl').onclick=function(){
+    //     alert("owl clicked")
+    // }  this gives less features use eventlistener instead
+
+    // document.getElementById('owl').addEventListener('click', function (e) {  //e is event object
+    //     // alert("owl clicked")
+    //     console.log(e.srcElemen)
+    // }, false)  //false is 3rd parameter and is false on default else not written usually
+    // // other approaches
+    // -attachEvent() on internet explorer
+    // -jQuery-on 
+
+
+    //learn events
+    //type
+    //timestamp
+    //target
+    //defaultPrevent
+    //toElement
+    //currentTarget
+    // clientX/Y, screenX/Y
+    //srcELement
+    //altKey,ctrlKey,shitKey,keyCode
+
+    //event propogation default is false and is called default bubbling the other is true and is called default capturing
+    // document.getElementById('images').addEventListener('click',function(e){
+    //         console.log('clicked inside the ul')
+    // },false)
+    // document.getElementById('owl').addEventListener('click',function(e){
+    //         console.log('clicked inside the owl')
+    //         e.stopPropagation()
+    // },false)
+    // document.getElementById('google').addEventListener('click', function (e) {
+    //     e.preventDefault()
+    //     e.stopPropagation()
+    //     console.log("google clicked")
+    // }, false)
+
+    //bubbling goes from bottom to top, like if u have two functions on same events like above one when u click on owl u also click on ul so it will invoke both console.logs,but since the propagation is default false it is in bubbling mode the owl will be first printed and then the ul will get printed 
+    //in capturing its opposite its top to bottom first ul will be printed then owl 
+
+    // if u want to stop propogation use e.stopPropagation() andleave propagationn on default (bubbling)
+
+    document.querySelector('#images').addEventListener('click', function (e) {
+        // console.log(e.target.parentNode)
+        // let removeIT = e.target.parentNode //(parent node because images are in li element if parent not writter li will be still there just images will be removed)\
+
+        // removeIT.remove()// one way
+        //the other way-u got the parent but have the method to delete child so u go to parents parent and delete its child by giving the parent(removeIT)
+        // removeIT.parentNode.removeChild(removeIT)
+
+
+        let removeIT = e.target
+        console.log(removeIT.tagName)
+        if(removeIT.tagName==='IMG' || removeIT.tagName==='A'){
+            removeIT.parentNode.remove()
+        }
+        //event spillover is what was happening when u could delete img, but when clicked on li the function leaked and ul got deleted but it was not supposed to do so we appied condition 
+
+    }, false)
+
+
+
+
+</script>
+
 </html>
