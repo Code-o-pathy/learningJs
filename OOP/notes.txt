@@ -1,0 +1,47 @@
+#js and classes
+js is prototype based language, it technically doesnot have classes but syntactic sugar over existing prototype based mechanism. 
+This helps developers coming from other class based languages
+
+//objects are collection of properties and methods.
+
+
+
+
+//why use OOP
+code usuaally gets messy so to avoid this and spaghettification of code(non usability) OOP are used.
+also get other features of class based languages like services function of java
+
+
+
+//parts of loop
+
+-object literal 
+
+//literally creating a object
+
+
+-constructor function
+new keyword gives u a new instance for existing
+function user(username){
+    this.username=username;
+    return this //this will return something else it will give undefined if not declared.
+}
+const one=user("hitesh) //hitest
+const two=user('ankit')//ankit
+console.log(one) //ankit
+this happened because there was only one instance of 'user' and when we used another variable it changed the first and only instance, thats why use 'new'
+
+
+
+-prototype
+
+
+-instances(new , this)
+
+
+
+4 pillars
+-abstraction
+-encapsulation
+-inheritance
+-polymorphism
