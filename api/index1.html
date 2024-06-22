@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: black;color: white;">
+
+    <div id="card">
+
+    </div>
+   
+    <!-- //ajax ready states
+    0 UNSENT Client has been created. open() not called yet.
+    1 OPENED open() has been called.
+    2 HEADERS_RECEIVED send() has been called, and headers and status are available.
+    3 LOADING Downloading; responseText holds partial data.
+    4 DONE The operation is complete. -->
+</body>
+
+<script>
+    const xhr = new XMLHttpRequest()
+    const card=document.querySelector('#card')
+    const reqURL = 'https://api.github.com/users/hiteshchoudhary'
+    xhr.open('GET', reqURL)
+    xhr.send()
+
+    function generateCard(img,followers,name){
+        card.innerHTML=` <img src=${img} alt="Hitesh Sir"><br> <h1>Name: ${name}</h1> <br> <h2>Followers:${followers}</h2>`
+    }
+
+    xhr.onreadystatechange = function () { //here use anonymouse or normal function because arrow function do not return on 'this' keyword
+
+        if (xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText) //so the data usually comes in strinng form parse it into JSON first
+            const img=(data.avatar_url)
+            const followers=(data.followers)
+            const name=(data.name)
+            generateCard(img,followers,name)
+
+        }
+    }
+
+
+
+</script>
+
+</html>
