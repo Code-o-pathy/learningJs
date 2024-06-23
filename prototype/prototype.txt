@@ -1,0 +1,9 @@
+-js has a prototypal behaviour
+-it searches for something if it does not find it will go to the upper layer and if not found there it will go to next upper layer till it finds the value or get a null value.
+-this, class , new , prototypal inheritance all are linked to this behaviour
+-in js
+    arrays->object->null
+    strings->object->null
+    function->pbject->null 
+
+-in js everything is an object
