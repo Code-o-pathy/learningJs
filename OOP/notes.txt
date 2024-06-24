@@ -45,3 +45,14 @@ this happened because there was only one instance of 'user' and when we used ano
 -encapsulation
 -inheritance
 -polymorphism
+
+
+
+
+
+
+
+
+
+
+//call bind this
